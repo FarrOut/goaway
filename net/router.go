@@ -9,7 +9,7 @@ import (
 
 var log = logging.MustGetLogger("net")
 
-func newRouter() *mux.Router {
+func NewRouter() *mux.Router {
 	// Create new Multiplexing router
 	r := mux.NewRouter()
 
