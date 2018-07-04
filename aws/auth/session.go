@@ -7,17 +7,11 @@ import (
 	"log"
 )
 
-func CreateSession() {
+func CreateSession() *session.Session {
 	log.Println("Creating new AWS Session...")
-	sess, err := session.NewSession()
+	sess := session.Must(session.NewSession())
 
 	dynamodb.New(sess, aws.NewConfig().WithLogLevel(aws.LogDebugWithHTTPBody))
-
-	if err != nil {
-		log.Fatal("Failed to authenticate new Session with AWS")
-	} else {
-		log.Println("Successfully created AWS Session")
-	}
 
 	creds, errCreds := sess.Config.Credentials.Get()
 
@@ -27,4 +21,5 @@ func CreateSession() {
 
 	log.Printf("Session created with credentials (%s)", creds.ProviderName)
 
+	return sess
 }

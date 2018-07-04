@@ -1,16 +1,12 @@
-package auth_test
+package aws
 
 import (
-	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/farrout/goaway/aws/auth"
 	"testing"
 )
 
 func TestCredentials(t *testing.T) {
-	sess, err := session.NewSession()
-
-	if err != nil {
-		t.Errorf("Failed to authenticate")
-	}
+	sess := auth.CreateSession()
 
 	creds, errCreds := sess.Config.Credentials.Get()
 
