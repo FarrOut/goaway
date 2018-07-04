@@ -1,4 +1,4 @@
-package auth
+package auth_test
 
 import (
 	"github.com/aws/aws-sdk-go/aws/session"
