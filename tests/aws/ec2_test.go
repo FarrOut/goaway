@@ -14,9 +14,4 @@ sess := auth.CreateSession()
 	svc := ec2.New(sess)
 
 
-
-	if err != nil {
-		t.Errorf("Failed to list EC2 instances")
-	}
-
 }
